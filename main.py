@@ -44,7 +44,7 @@ class SynAnt:
         # Check for invalid inputs.
         if not (list_of_words and isinstance(list_of_words, list) and all(
                 isinstance(elem, str) for elem in list_of_words)):
-            raise ValueError("'list_of_words' is not an non-empty list of strings.")
+            raise ValueError("The provided input is not an non-empty list of strings.")
 
         self.words = list_of_words
 
