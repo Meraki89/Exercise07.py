@@ -1,6 +1,13 @@
 import nltk
 import random
 
+# Necessary for def generate_names:
+# nltk.download('names')
+
+# Necessary for def find_synonyms and def find_antonyms:
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+
 
 def write_lines(contents, file):
     with open(file, 'w') as writer:
@@ -8,11 +15,9 @@ def write_lines(contents, file):
 
 
 def generate_names(char, num):
-    char = char.upper()
     if not isinstance(char, str) or len(char) != 1:
         raise ValueError("Value of char is not a character.")
-
-    # nltk.download('names')
+    char = char.upper()
 
     male_tag = "male"
     female_tag = "female"
@@ -47,10 +52,6 @@ class SynAnt:
             raise ValueError("The provided input is not a non-empty list of strings.")
 
         self.words = list_of_words
-
-        # Need these for find_synonyms and find_antonyms, so we download them once here.
-        # nltk.download('wordnet')
-        # nltk.download('omw-1.4')
 
     def find_synonyms(self):
         for word in self.words:
